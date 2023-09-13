@@ -25,7 +25,6 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
           "sass-loader",
@@ -39,7 +38,6 @@ module.exports = {
   ],
   optimization: {
     minimizer: [
-      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
       `...`,
       new CssMinimizerPlugin(),
       new ImageMinimizerPlugin({
@@ -47,8 +45,6 @@ module.exports = {
           implementation: ImageMinimizerPlugin.sharpMinify,
           options: {
             encodeOptions: {
-              // Your options for `sharp`
-              // https://sharp.pixelplumbing.com/api-output
             },
           },
         },
